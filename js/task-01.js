@@ -1,6 +1,6 @@
 
 const categoriesList = document.getElementById('categories');
-const categories = categoriesContainer.querySelectorAll('.item');
+const categories = categoriesList.querySelectorAll('.item');
 
 function getCategories(parent) {
     console.log(`Number of categories: ${parent.children.length}`)

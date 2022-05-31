@@ -18,9 +18,9 @@ const galleryList = document.querySelector('.gallery');
 
 function setImages(parent) {
 
-  images.forEach(item => {
-    parent.insertAdjacentHTML('beforeend', `<li><img src=${item.url} /></li>`);
-  })
+  const arr = images.map(item => `<li><img src='${item.url}' alt='${item.alt}'/></li>`)
+
+  parent.insertAdjacentHTML('beforeend', arr.join(''))
 
   parent.style.display = 'flex';
   parent.style.justifyContent = 'space-between';
@@ -34,7 +34,6 @@ function setImagesStyle(parent) {
   const imagesArray = parent.querySelectorAll('img');
   
   images.forEach((item, i) => {
-    imagesArray[i].setAttribute('alt', item.alt);
     imagesArray[i].style.width = '200px';
     })
 }

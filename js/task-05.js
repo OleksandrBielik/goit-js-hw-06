@@ -3,5 +3,5 @@ const outputElement = document.getElementById('name-output');
 
 inputElement.addEventListener('input', () => {
     const value = inputElement.value;
-    value === '' ? outputElement.textContent = 'Anonymous' : outputElement.textContent = value;
+    outputElement.textContent = value === '' ? 'Anonymous' : value;
 })

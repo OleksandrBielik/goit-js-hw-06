@@ -15,29 +15,23 @@ controlContainer.addEventListener('click', (e) => {
 })
 
 
-
 function createBoxes(amount) {
-  let arr = [];
-  arr.length = amount;
+  boxes.innerHTML = "";
 
-  arr.fill(null, 0)
+  const arr = [...Array(amount)];
 
-  arr.forEach((item, i) => {
-    const divElement = document.createElement('div')
+  const elements = arr.map((item, i) => 
+    `<div style="background-color: ${getRandomHexColor()}; width: ${30 + (i * 10)}px; height: ${30 + (i * 10)}px;"></div>`
+  )
 
-    divElement.style.backgroundColor = getRandomHexColor();
-    divElement.style.width = `${30 + (i * 10)}px`;
-    divElement.style.height = `${30 + (i * 10)}px`;
+  boxes.insertAdjacentHTML('beforeend', elements.join(''))
 
-    boxes.appendChild(divElement)
-  })
   inputElement.value = "";
 }
 
+
 function destroyBoxes(parent) {
-  Array.from(parent.children).forEach(item => {
-    item.remove()
-  })
+  parent.innerHTML = "";
   inputElement.value = "";
 }
 

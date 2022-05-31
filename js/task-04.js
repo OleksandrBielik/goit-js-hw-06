@@ -9,6 +9,13 @@ function updateCounter() {
 updateCounter()
 
 counterContainer.addEventListener('click', (e) => {
-    e.target.getAttribute('data-action') === "increment" ? counterValue += 1 : counterValue -= 1;
-    updateCounter()
+
+    if (e.target.dataset.action === "increment") {
+        counterValue += 1
+        updateCounter()
+    } else if (e.target.dataset.action === "decrement") {
+        counterValue -= 1
+        updateCounter()
+    }
+    
 })

@@ -9,13 +9,17 @@ const ingredients = [
 
 const ingredientsList = document.getElementById('ingredients');
 
-function setItems(parent) {
-  ingredients.forEach(item => {
+function setItems() {
+  const arr = ingredients.map(item => {
     const ingredient = document.createElement('li');
     ingredient.className = 'item';
     ingredient.textContent = item;
-    parent.appendChild(ingredient)
+    return ingredient;
   })
+  return arr
 }
 
-setItems(ingredientsList);
+const elements = setItems()
+
+ingredientsList.append(...elements)
+
